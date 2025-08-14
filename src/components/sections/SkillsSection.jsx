@@ -39,7 +39,6 @@ export function SkillsSection() {
   return (
     <section id="skills" className="py-20 px-4">
       <div className="container mx-auto max-w-6xl">
-        {/* Header da seção */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,11 +46,9 @@ export function SkillsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          {/* ALTERAÇÃO: Cores do título para tema claro/escuro */}
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Habilidades e Tecnologias
           </h2>
-          {/* ALTERAÇÃO: Cores do parágrafo para tema claro/escuro */}
           <p className="text-lg text-gray-600 dark:text-white/60 max-w-2xl mx-auto">
             Um kit de ferramentas abrangente de tecnologias e estruturas modernas que utilizo para criar experiências digitais excepcionais.
           </p>
@@ -75,13 +72,10 @@ export function SkillsSection() {
                     w-10 h-10 rounded-lg 
                     bg-gradient-to-br ${category.color} p-0.5
                   `}>
-                    {/* ALTERAÇÃO: Fundo do ícone para tema claro/escuro */}
                     <div className="w-full h-full bg-white/50 dark:bg-black/50 backdrop-blur rounded-lg flex items-center justify-center">
-                      {/* ALTERAÇÃO: Cor do ícone para tema claro/escuro */}
                       <category.icon className="w-5 h-5 text-gray-800 dark:text-white" />
                     </div>
                   </div>
-                  {/* ALTERAÇÃO: Cor do título da categoria para tema claro/escuro */}
                   <h3 className="ml-3 text-lg font-semibold text-gray-900 dark:text-white">
                     {category.title}
                   </h3>
@@ -102,7 +96,6 @@ export function SkillsSection() {
                     >
                       <Badge 
                         variant="glass"
-                        // ALTERAÇÃO: Cor do texto e do hover da badge para tema claro/escuro
                         className="px-3 py-1.5 text-xs text-gray-800 dark:text-white/90 hover:bg-black/5 dark:hover:bg-white/15 cursor-default"
                       >
                         {skill}
@@ -150,7 +143,6 @@ export function SkillsSection() {
                   >
                     {stat.number}
                   </motion.div>
-                  {/* ALTERAÇÃO: Cor do texto do label para tema claro/escuro */}
                   <div className="text-sm text-gray-600 dark:text-white/60">
                     {stat.label}
                   </div>

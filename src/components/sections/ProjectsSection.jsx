@@ -3,7 +3,6 @@ import { GlassCard, GlassBadge } from "@/components/GlassCard"
 import { ExternalLink, Github, ArrowUpRight } from "lucide-react"
 
 export function ProjectsSection() {
-  // Dados dos projetos com cores específicas como na imagem
   const projects = [
     {
       id: 1,
@@ -118,7 +117,6 @@ export function ProjectsSection() {
   return (
     <section id="projects" className="py-20 px-4">
       <div className="container mx-auto max-w-7xl">
-        {/* Header da seção */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -133,8 +131,7 @@ export function ProjectsSection() {
             Conheça alguns dos projetos desenvolvidos por mim.
           </p>
         </motion.div>
-        
-        {/* Grid de projetos */}
+
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -158,7 +155,6 @@ export function ProjectsSection() {
                 shadow-lg dark:shadow-none 
                 hover:shadow-xl dark:hover:shadow-lg dark:hover:shadow-purple-500/20
                 transition-all duration-300">
-                {/* Fundo com gradiente */}
                 <div className={`
                   absolute inset-0 
                   bg-gradient-to-br ${project.gradient}
@@ -167,7 +163,6 @@ export function ProjectsSection() {
                   dark:opacity-100 opacity-90
                 `} />
 
-                {/* Overlay com glassmorfismo no hover */}
                 <div className="
                   absolute inset-0 
                   bg-black/20 backdrop-blur-[2px]
@@ -175,9 +170,7 @@ export function ProjectsSection() {
                   transition-all duration-300
                 " />
 
-                {/* Conteúdo do card */}
                 <div className="relative h-full p-6 flex flex-col justify-between">
-                  {/* Badge da categoria */}
                   <div>
                     <span className="
                       inline-block px-3 py-1 
@@ -190,13 +183,11 @@ export function ProjectsSection() {
                     </span>
                   </div>
 
-                  {/* Título e ações */}
                   <div>
                     <h3 className="text-xl font-semibold text-white mb-3 drop-shadow-md">
                       {project.title}
                     </h3>
 
-                    {/* Botões de ação - aparecem no hover */}
                     <div className="
                       flex gap-3 
                       opacity-0 group-hover:opacity-100
@@ -237,7 +228,6 @@ export function ProjectsSection() {
                   </div>
                 </div>
 
-                {/* Ícone decorativo no canto */}
                 <ArrowUpRight className="
                   absolute top-4 right-4 w-5 h-5 text-white/50
                   transform translate-x-10 -translate-y-10

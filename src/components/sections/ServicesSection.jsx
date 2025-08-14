@@ -74,7 +74,6 @@ export function ServicesSection() {
   return (
     <section id="services" className="py-20 px-4">
       <div className="container mx-auto max-w-7xl">
-        {/* Header da seção */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -82,18 +81,15 @@ export function ServicesSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          {/* ALTERAÇÃO: Cores do título para tema claro/escuro */}
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             SERVIÇOS
           </h2>
-          {/* ALTERAÇÃO: Cores do parágrafo para tema claro/escuro */}
           <p className="text-lg text-gray-600 dark:text-white/60 max-w-4xl mx-auto">
             Um site vai além de uma simples página na internet. Ele é a porta de entrada para o seu negócio, 
             a vitrine que apresenta seus produtos ou serviços e a ferramenta poderosa para alcançar seus objetivos.
           </p>
         </motion.div>
 
-        {/* Grid de serviços */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -108,45 +104,36 @@ export function ServicesSection() {
                 hover={true}
                 gradient={true}
               >
-                {/* Ícone e título */}
                 <div className="flex items-start mb-4">
-                  {/* Container do ícone com gradiente */}
+
                   <div className={`
                     w-14 h-14 rounded-xl 
                     bg-gradient-to-br ${service.color} p-0.5
                     group-hover:scale-110 transition-transform duration-300
                     flex-shrink-0
                   `}>
-                    {/* ALTERAÇÃO: Fundo do ícone para tema claro/escuro */}
                     <div className="w-full h-full bg-white/50 dark:bg-black/60 backdrop-blur rounded-xl flex items-center justify-center">
-                      {/* ALTERAÇÃO: Cor do ícone para tema claro/escuro */}
                       <service.icon className="w-7 h-7 text-gray-800 dark:text-white" />
                     </div>
                   </div>
                   
-                  {/* Título do serviço */}
-                  {/* ALTERAÇÃO: Cor do título do card para tema claro/escuro */}
+
                   <h3 className="ml-4 text-xl font-semibold text-gray-900 dark:text-white pt-3">
                     {service.title}
                   </h3>
                 </div>
 
-                {/* Descrição do serviço */}
-                {/* ALTERAÇÃO: Cor da descrição do card para tema claro/escuro */}
                 <p className="text-sm text-justify text-gray-600 dark:text-white/70 leading-relaxed mb-4">
                   {service.description}
                 </p>
 
-                {/* Indicador de ação no hover */}
                 <div className="flex items-center justify-between mt-auto">
-                  {/* Linha decorativa */}
                   <div className={`
                     h-0.5 flex-1 mr-4 rounded-full
                     bg-gradient-to-r ${service.color} opacity-0
                     group-hover:opacity-100 transition-opacity duration-500
                   `} />
                   
-                  {/* ALTERAÇÃO: Cor do texto "Saiba mais" para tema claro/escuro e hover */}
                   <div className="flex items-center text-gray-500 dark:text-white/40 group-hover:text-gray-700 dark:group-hover:text-white/80 transition-colors">
                     <span className="text-xs font-medium">Saiba mais</span>
                     <svg 
@@ -169,7 +156,6 @@ export function ServicesSection() {
           ))}
         </motion.div>
 
-        {/* Call to Action */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -177,7 +163,6 @@ export function ServicesSection() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-center mt-16"
         >
-          {/* ALTERAÇÃO: Cor do texto para tema claro/escuro */}
           <p className="text-gray-600 dark:text-white/60 mb-6">
             Pronto para transformar sua presença digital?
           </p>

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { Sun, Moon } from "lucide-react"
-import { useTheme } from "@/contexts/ThemeContext" // Verifique se este caminho está correto
+import { useTheme } from "@/contexts/ThemeContext"
 
 export function ThemeToggle() {
   const { theme, toggleTheme } = useTheme()
@@ -8,7 +8,6 @@ export function ThemeToggle() {
   return (
     <motion.button
       onClick={toggleTheme}
-      // ALTERAÇÃO: Classes corrigidas para o padrão do Tailwind
       className="
         relative p-2 rounded-lg
         bg-gray-900/10 hover:bg-gray-900/20
@@ -50,7 +49,6 @@ export function ThemeToggle() {
         </motion.div>
       </div>
 
-      {/* ALTERAÇÃO: Classes da tooltip corrigidas */}
       <span className="
         absolute -bottom-10 left-1/2 -translate-x-1/2
         px-2 py-1 rounded text-xs
@@ -67,7 +65,6 @@ export function ThemeToggle() {
   )
 }
 
-// O componente ThemeSwitch também foi revisado para consistência
 export function ThemeSwitch() {
   const { theme, toggleTheme } = useTheme()
   const isDark = theme === "dark"
@@ -75,7 +72,6 @@ export function ThemeSwitch() {
   return (
     <button
       onClick={toggleTheme}
-      // ALTERAÇÃO: Classes limpas para remover redundâncias
       className="
         relative inline-flex h-8 w-14 items-center rounded-full
         bg-gray-300 dark:bg-gray-700
@@ -86,7 +82,6 @@ export function ThemeSwitch() {
       aria-label="Alternar tema"
     >
       <motion.span
-        // ALTERAÇÃO: Classes limpas para remover redundâncias
         className="
           inline-block h-6 w-6 rounded-full
           bg-white dark:bg-gray-900
@@ -97,7 +92,6 @@ export function ThemeSwitch() {
         transition={{ type: "spring", stiffness: 500, damping: 30 }}
       >
         <div className="relative w-full h-full flex items-center justify-center">
-          {/* A lógica dos ícones já estava correta, sem necessidade de alteração */}
           <motion.div
             initial={false}
             animate={{ scale: isDark ? 0 : 1, opacity: isDark ? 0 : 1 }}
