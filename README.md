@@ -1,9 +1,3 @@
-Claro! Aqui está o `README` que você pediu, formatado em Markdown.
-
-Pode copiar e colar este conteúdo diretamente num ficheiro chamado `README.md`.
-
----
-
 # Rafiweb - Portfólio Pessoal com React e WordPress
 
 Este é o repositório do meu portfólio pessoal, desenvolvido como uma Single Page Application (SPA) moderna e totalmente animada. O projeto utiliza React e Vite para o front-end e é integrado a um back-end WordPress através de um plugin personalizado, que também gere o envio do formulário de contacto.
