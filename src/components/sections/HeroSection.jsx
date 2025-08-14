@@ -4,7 +4,7 @@ import { ArrowRight, Sparkles } from "lucide-react"
 import { GlassBadge } from "@/components/GlassCard"
 
 export function HeroSection() {
-  // Animações para entrada dos elementos
+  // Animações de entrada
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -28,7 +28,7 @@ export function HeroSection() {
     },
   }
 
-  // Função para scroll suave até a seção de contato
+  // Função de scroll
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
   }
@@ -42,10 +42,6 @@ export function HeroSection() {
         transition={{ duration: 0.6 }}
         className="absolute top-20 left-1/2 -translate-x-1/2"
       >
-        <GlassBadge className="text-xs uppercase tracking-wider">
-          <Sparkles className="w-3 h-3 mr-2" />
-          Full-Featured Web Services
-        </GlassBadge>
       </motion.div>
 
       {/* Container principal do conteúdo */}
@@ -61,7 +57,7 @@ export function HeroSection() {
           className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6"
         >
           <span className="text-white">Olá, me chamo </span>
-          <span className="text-gradient">Raniery!</span>
+          <span className="text-gradient">Raniery</span>
           <motion.span
             className="inline-block ml-4 text-5xl"
             animate={{ rotate: [0, 14, -8, 14, -4, 10, 0] }}
@@ -81,7 +77,7 @@ export function HeroSection() {
           variants={itemVariants}
           className="text-2xl md:text-3xl lg:text-4xl text-white/80 mb-8"
         >
-          I build digital products.
+          Desenvolvedor Full Stack
         </motion.h2>
 
         {/* Descrição */}
@@ -89,9 +85,7 @@ export function HeroSection() {
           variants={itemVariants}
           className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-12 leading-relaxed"
         >
-          I'm an engineer focused on web development and e-commerce.
-          I'm providing freelance web development solutions to my clients
-          as a Wix expert and Shopify expert.
+          Sou um desenvolvedor focado em desenvolvimento web e e-commerce. Ofereço soluções freelance de desenvolvimento web para meus clientes.
         </motion.p>
 
         {/* Botões de ação */}
@@ -111,7 +105,7 @@ export function HeroSection() {
             
             {/* Texto do botão */}
             <span className="relative flex items-center">
-              Contact
+              Fale Comigo
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </span>
           </Button>
@@ -123,7 +117,7 @@ export function HeroSection() {
             className="border-white/20 text-white hover:bg-white/10"
             onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
           >
-            View Projects
+            Meus Projetos
           </Button>
         </motion.div>
 
@@ -138,7 +132,7 @@ export function HeroSection() {
           className="absolute bottom-10 left-1/2 -translate-x-1/2"
         >
           <div className="flex flex-col items-center text-white/40">
-            <span className="text-xs mb-2">Scroll Down</span>
+            <span className="text-xs mb-2">Continue 👇</span>
             <div className="w-6 h-10 border-2 border-white/20 rounded-full p-1">
               <div className="w-1 h-2 bg-white/60 rounded-full mx-auto animate-bounce" />
             </div>
