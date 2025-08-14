@@ -1,56 +1,67 @@
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { useForm } from "react-hook-form"
-import { GlassCard } from "@/components/GlassCard"
-import { Button } from "@/components/ui/button"
-import { 
-  Send, 
-  Mail, 
-  User, 
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { useForm } from "react-hook-form";
+import { GlassCard } from "@/components/GlassCard";
+import { Button } from "@/components/ui/button";
+import {
+  Send,
+  Mail,
+  User,
   MessageSquare,
   CheckCircle,
   AlertCircle,
   Github,
   Linkedin,
-  Instagram
-} from "lucide-react"
+  Instagram,
+} from "lucide-react";
 
 export function ContactSection() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState(null)
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset
-  } = useForm()
+    reset,
+  } = useForm();
 
-  // Função de envio do formulário
   const onSubmit = async (data) => {
-    setIsSubmitting(true)
-    setSubmitStatus(null)
+    setIsSubmitting(true);
+    setSubmitStatus(null);
 
     try {
-      // Simular envio (substitua por sua lógica real)
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      
-      console.log("Form data:", data)
-      setSubmitStatus("success")
-      reset()
+      const response = await fetch("/wp-json/rafiweb/v1/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const responseData = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        reset();
+      } else {
+        // Mostra a mensagem de erro vinda do WordPress, se houver
+        throw new Error(responseData.message || "Falha ao enviar o formulário");
+      }
     } catch (error) {
-      setSubmitStatus("error")
+      console.error("Erro no envio do formulário:", error);
+      setSubmitStatus("error");
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   // Links sociais
   const socialLinks = [
     { icon: Github, href: "#", label: "GitHub" },
     { icon: Linkedin, href: "#", label: "LinkedIn" },
     { icon: Instagram, href: "#", label: "Instagram" },
-  ]
+  ];
 
   return (
     <section id="contact" className="py-20 px-4 relative">
@@ -67,7 +78,8 @@ export function ContactSection() {
             Fale Comigo
           </h2>
           <p className="text-lg text-gray-600 dark:text-white/60 max-w-2xl mx-auto">
-            Tem um projeto em mente? Vamos trabalhar juntos para criar algo incrível.
+            Tem um projeto em mente? Vamos trabalhar juntos para criar algo
+            incrível.
           </p>
         </motion.div>
 
@@ -88,17 +100,21 @@ export function ContactSection() {
                     Nome
                   </label>
                   <input
-                    {...register("name", { 
+                    {...register("name", {
                       required: "O nome é obrigatório",
                       minLength: {
                         value: 2,
-                        message: "O nome deve ter pelo menos 2 caracteres"
-                      }
+                        message: "O nome deve ter pelo menos 2 caracteres",
+                      },
                     })}
                     className={`
                       w-full px-4 py-3 rounded-lg
                       bg-gray-50 dark:bg-white/5 backdrop-blur-md
-                      border ${errors.name ? 'border-red-500/50' : 'border-gray-300 dark:border-white/10'}
+                      border ${
+                        errors.name
+                          ? "border-red-500/50"
+                          : "border-gray-300 dark:border-white/10"
+                      }
                       text-gray-900 dark:text-white 
                       placeholder-gray-400 dark:placeholder-white/40
                       focus:outline-none focus:border-purple-500 dark:focus:border-neon-purple/50
@@ -125,18 +141,22 @@ export function ContactSection() {
                     Email
                   </label>
                   <input
-                    {...register("email", { 
+                    {...register("email", {
                       required: "O e-mail é obrigatório",
                       pattern: {
                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: "Endereço de e-mail inválido"
-                      }
+                        message: "Endereço de e-mail inválido",
+                      },
                     })}
                     type="email"
                     className={`
                       w-full px-4 py-3 rounded-lg
                       bg-gray-50 dark:bg-white/5 backdrop-blur-md
-                      border ${errors.email ? 'border-red-500/50' : 'border-gray-300 dark:border-white/10'}
+                      border ${
+                        errors.email
+                          ? "border-red-500/50"
+                          : "border-gray-300 dark:border-white/10"
+                      }
                       text-gray-900 dark:text-white 
                       placeholder-gray-400 dark:placeholder-white/40
                       focus:outline-none focus:border-purple-500 dark:focus:border-neon-purple/50
@@ -163,17 +183,21 @@ export function ContactSection() {
                   Assunto
                 </label>
                 <input
-                  {...register("subject", { 
+                  {...register("subject", {
                     required: "O assunto é obrigatório",
                     minLength: {
                       value: 5,
-                      message: "O assunto deve ter pelo menos 5 caracteres"
-                    }
+                      message: "O assunto deve ter pelo menos 5 caracteres",
+                    },
                   })}
                   className={`
                     w-full px-4 py-3 rounded-lg
                     bg-gray-50 dark:bg-white/5 backdrop-blur-md
-                    border ${errors.subject ? 'border-red-500/50' : 'border-gray-300 dark:border-white/10'}
+                    border ${
+                      errors.subject
+                        ? "border-red-500/50"
+                        : "border-gray-300 dark:border-white/10"
+                    }
                     text-gray-900 dark:text-white 
                     placeholder-gray-400 dark:placeholder-white/40
                     focus:outline-none focus:border-purple-500 dark:focus:border-neon-purple/50
@@ -200,18 +224,22 @@ export function ContactSection() {
                   Mensagem
                 </label>
                 <textarea
-                  {...register("message", { 
+                  {...register("message", {
                     required: "A mensagem é obrigatória",
                     minLength: {
                       value: 10,
-                      message: "A mensagem deve ter pelo menos 10 caracteres"
-                    }
+                      message: "A mensagem deve ter pelo menos 10 caracteres",
+                    },
                   })}
                   rows={5}
                   className={`
                     w-full px-4 py-3 rounded-lg resize-none
                     bg-gray-50 dark:bg-white/5 backdrop-blur-md
-                    border ${errors.message ? 'border-red-500/50' : 'border-gray-300 dark:border-white/10'}
+                    border ${
+                      errors.message
+                        ? "border-red-500/50"
+                        : "border-gray-300 dark:border-white/10"
+                    }
                     text-gray-900 dark:text-white 
                     placeholder-gray-400 dark:placeholder-white/40
                     focus:outline-none focus:border-purple-500 dark:focus:border-neon-purple/50
@@ -244,9 +272,11 @@ export function ContactSection() {
                 >
                   {isSubmitting ? (
                     <span className="flex items-center">
-                      <div className="animate-spin rounded-full h-4 w-4 border-2 
+                      <div
+                        className="animate-spin rounded-full h-4 w-4 border-2 
                         border-gray-400 dark:border-white/20 
-                        border-t-gray-700 dark:border-t-white mr-2" />
+                        border-t-gray-700 dark:border-t-white mr-2"
+                      />
                       Enviando...
                     </span>
                   ) : (
@@ -321,5 +351,5 @@ export function ContactSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
