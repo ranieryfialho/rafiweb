@@ -98,7 +98,6 @@ export function HeroSection() {
           </Button>
         </motion.div>
 
-        {/* --- CÓDIGO DO SCROLL ANIMADO CORRIGIDO --- */}
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{
@@ -106,7 +105,6 @@ export function HeroSection() {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          // As classes foram alteradas aqui para um método de centralização mais robusto
           className="absolute bottom-10 left-0 right-0 flex justify-center"
         >
           <div className="flex flex-col items-center text-gray-500 dark:text-white/40">
