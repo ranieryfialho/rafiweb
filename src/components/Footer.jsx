@@ -1,13 +1,13 @@
-import { Heart } from "lucide-react"
+import { Heart } from "lucide-react";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="py-8 px-4 border-t border-gray-200 dark:border-white/10">
       <div className="container mx-auto max-w-6xl">
-        <div className="flex flex-col md:flex-row items-center justify-between">
-          <div className="text-gray-600 dark:text-white/60 text-sm mb-4 md:mb-0">
+        <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-4">
+          <div className="text-gray-600 dark:text-white/60 text-sm text-center md:text-left">
             © {currentYear} Rafiweb. Todos os direitos reservados.
           </div>
 
@@ -19,5 +19,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

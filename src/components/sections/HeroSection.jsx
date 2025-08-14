@@ -42,15 +42,14 @@ export function HeroSection() {
         className="max-w-5xl mx-auto text-center z-10"
       >
         {/* Título principal com gradiente */}
-       <motion.h1
+        <motion.h1
           variants={itemVariants}
           className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6"
         >
           <span className="text-gray-900 dark:text-white">Olá, me chamo </span>
           <span className="text-gradient">Raniery</span>
-          
-          <span 
-            className="inline-block ml-4 before:content-['\1F44B']" 
+          <span
+            className="inline-block ml-4 before:content-['\1F44B']"
             style={{ fontSize: '3rem' }}
           >
           </span>
@@ -69,7 +68,7 @@ export function HeroSection() {
           variants={itemVariants}
           className="text-lg md:text-xl text-gray-600 dark:text-white/60 max-w-2xl mx-auto mb-12 leading-relaxed"
         >
-          Sou desenvolvedor especializado em soluções web e plataformas de e-commerce, oferecendo serviços freelance personalizados de cada cliente.
+          Sou um desenvolvedor especializado em soluções web e plataformas de e-commerce, oferecendo serviços freelance personalizados de cada cliente.
         </motion.p>
 
         {/* Botões de ação */}
@@ -84,7 +83,6 @@ export function HeroSection() {
             className="group relative overflow-hidden px-8 py-6 text-lg dark:text-white text-gray-900"
           >
             <span className="absolute inset-0 bg-gradient-to-r from-neon-purple via-neon-blue to-neon-pink opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-
             <span className="relative flex items-center">
               Fale Comigo
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -100,7 +98,7 @@ export function HeroSection() {
           </Button>
         </motion.div>
 
-        {/* Indicadores de scroll animados */}
+        {/* --- CÓDIGO DO SCROLL ANIMADO CORRIGIDO --- */}
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{
@@ -108,7 +106,8 @@ export function HeroSection() {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          // As classes foram alteradas aqui para um método de centralização mais robusto
+          className="absolute bottom-10 left-0 right-0 flex justify-center"
         >
           <div className="flex flex-col items-center text-gray-500 dark:text-white/40">
             <span className="mb-2" style={{ fontSize: '0.75rem' }}>Continue</span>
@@ -117,6 +116,7 @@ export function HeroSection() {
             </div>
           </div>
         </motion.div>
+        
       </motion.div>
 
       {/* Elementos decorativos animados */}
