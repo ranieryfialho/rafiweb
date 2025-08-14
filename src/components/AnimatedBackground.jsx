@@ -1,8 +1,11 @@
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
+import { useTheme } from "@/contexts/ThemeContext"
+import { cn } from "@/lib/utils"
 
 export function AnimatedBackground() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const { isDark } = useTheme()
 
   // Efeito parallax
   useEffect(() => {
@@ -20,13 +23,23 @@ export function AnimatedBackground() {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none">
       {/* Grid pattern de fundo */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]" />
+      <div 
+        className={cn(
+          "absolute inset-0",
+          isDark 
+            ? "bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)]" 
+            : "bg-[linear-gradient(to_right,#e5e7eb30_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb30_1px,transparent_1px)]",
+          "bg-[size:14px_24px]"
+        )} 
+      />
 
       {/* Círculo roxo flutuante */}
       <motion.div
         className="absolute w-96 h-96 rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%)",
+          background: isDark 
+            ? "radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%)"
+            : "radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%)",
           filter: "blur(40px)",
           top: "-10%",
           right: "10%",
@@ -42,7 +55,9 @@ export function AnimatedBackground() {
       <motion.div
         className="absolute w-64 h-64 rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(6, 182, 212, 0.3) 0%, transparent 70%)",
+          background: isDark
+            ? "radial-gradient(circle, rgba(6, 182, 212, 0.3) 0%, transparent 70%)"
+            : "radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 70%)",
           filter: "blur(40px)",
           bottom: "20%",
           left: "10%",
@@ -59,7 +74,9 @@ export function AnimatedBackground() {
       <motion.div
         className="absolute w-72 h-72 rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, transparent 70%)",
+          background: isDark
+            ? "radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, transparent 70%)"
+            : "radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, transparent 70%)",
           filter: "blur(40px)",
           top: "50%",
           right: "30%",
@@ -70,6 +87,24 @@ export function AnimatedBackground() {
         }}
         transition={{ type: "spring", stiffness: 40 }}
       />
+
+      {/* Círculo adicional para tema claro */}
+      {!isDark && (
+        <motion.div
+          className="absolute w-80 h-80 rounded-full"
+          style={{
+            background: "radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%)",
+            filter: "blur(60px)",
+            bottom: "-5%",
+            right: "25%",
+          }}
+          animate={{
+            x: mousePosition.x * 0.05,
+            y: mousePosition.y * 0.05,
+          }}
+          transition={{ type: "spring", stiffness: 25 }}
+        />
+      )}
 
       {/* Linhas curvas decorativas */}
       <svg
@@ -87,9 +122,9 @@ export function AnimatedBackground() {
         />
         <defs>
           <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.2" />
-            <stop offset="50%" stopColor="#06b6d4" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#ec4899" stopOpacity="0.2" />
+            <stop offset="0%" stopColor="#8b5cf6" stopOpacity={isDark ? "0.2" : "0.1"} />
+            <stop offset="50%" stopColor="#06b6d4" stopOpacity={isDark ? "0.5" : "0.25"} />
+            <stop offset="100%" stopColor="#ec4899" stopOpacity={isDark ? "0.2" : "0.1"} />
           </linearGradient>
         </defs>
       </svg>
@@ -98,12 +133,17 @@ export function AnimatedBackground() {
 }
 
 export function FloatingParticles() {
+  const { isDark } = useTheme()
+  
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {[...Array(20)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-1 h-1 bg-white/20 rounded-full"
+          className={cn(
+            "absolute w-1 h-1 rounded-full",
+            isDark ? "bg-white/20" : "bg-gray-900/20"
+          )}
           initial={{
             x: Math.random() * window.innerWidth,
             y: Math.random() * window.innerHeight,

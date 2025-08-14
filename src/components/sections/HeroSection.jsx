@@ -56,7 +56,7 @@ export function HeroSection() {
           variants={itemVariants}
           className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6"
         >
-          <span className="text-white">Olá, me chamo </span>
+          <span className="text-gray-900 dark:text-white">Olá, me chamo </span>
           <span className="text-gradient">Raniery</span>
           <motion.span
             className="inline-block ml-4 text-5xl"
@@ -75,7 +75,7 @@ export function HeroSection() {
         {/* Subtítulo */}
         <motion.h2
           variants={itemVariants}
-          className="text-2xl md:text-3xl lg:text-4xl text-white/80 mb-8"
+          className="text-2xl md:text-3xl lg:text-4xl text-gray-700 dark:text-white/80 mb-8"
         >
           Desenvolvedor Full Stack
         </motion.h2>
@@ -83,7 +83,7 @@ export function HeroSection() {
         {/* Descrição */}
         <motion.p
           variants={itemVariants}
-          className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="text-lg md:text-xl text-gray-600 dark:text-white/60 max-w-2xl mx-auto mb-12 leading-relaxed"
         >
           Sou um desenvolvedor focado em desenvolvimento web e e-commerce. Ofereço soluções freelance de desenvolvimento web para meus clientes.
         </motion.p>
@@ -114,7 +114,7 @@ export function HeroSection() {
           <Button
             variant="outline"
             size="lg"
-            className="border-white/20 text-white hover:bg-white/10"
+            className="border-gray-300 dark:border-white/20 text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-white/10"
             onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
           >
             Meus Projetos
@@ -131,7 +131,7 @@ export function HeroSection() {
           }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2"
         >
-          <div className="flex flex-col items-center text-white/40">
+          <div className="flex flex-col items-center text-gray-500 dark:text-white/40">
             <span className="text-xs mb-2">Continue 👇</span>
             <div className="w-6 h-10 border-2 border-white/20 rounded-full p-1">
               <div className="w-1 h-2 bg-white/60 rounded-full mx-auto animate-bounce" />

@@ -63,10 +63,10 @@ export function ContactSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Fale Comigo
           </h2>
-          <p className="text-lg text-white/60 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-white/60 max-w-2xl mx-auto">
             Tem um projeto em mente? Vamos trabalhar juntos para criar algo incrível.
           </p>
         </motion.div>
@@ -83,7 +83,7 @@ export function ContactSection() {
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Campo Nome */}
                 <div>
-                  <label className="block text-sm font-medium text-white/80 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-white/80 mb-2">
                     <User className="inline w-4 h-4 mr-1" />
                     Nome
                   </label>
@@ -97,11 +97,13 @@ export function ContactSection() {
                     })}
                     className={`
                       w-full px-4 py-3 rounded-lg
-                      bg-white/5 backdrop-blur-md
-                      border ${errors.name ? 'border-red-500/50' : 'border-white/10'}
-                      text-white placeholder-white/40
-                      focus:outline-none focus:border-neon-purple/50
-                      focus:bg-white/10 transition-all duration-300
+                      bg-gray-50 dark:bg-white/5 backdrop-blur-md
+                      border ${errors.name ? 'border-red-500/50' : 'border-gray-300 dark:border-white/10'}
+                      text-gray-900 dark:text-white 
+                      placeholder-gray-400 dark:placeholder-white/40
+                      focus:outline-none focus:border-purple-500 dark:focus:border-neon-purple/50
+                      focus:bg-white dark:focus:bg-white/10 
+                      transition-all duration-300
                     `}
                     placeholder="Seu nome"
                   />
@@ -109,7 +111,7 @@ export function ContactSection() {
                     <motion.p
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="text-red-400 text-xs mt-1"
+                      className="text-red-500 dark:text-red-400 text-xs mt-1"
                     >
                       {errors.name.message}
                     </motion.p>
@@ -118,7 +120,7 @@ export function ContactSection() {
 
                 {/* Campo Email */}
                 <div>
-                  <label className="block text-sm font-medium text-white/80 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-white/80 mb-2">
                     <Mail className="inline w-4 h-4 mr-1" />
                     Email
                   </label>
@@ -133,11 +135,13 @@ export function ContactSection() {
                     type="email"
                     className={`
                       w-full px-4 py-3 rounded-lg
-                      bg-white/5 backdrop-blur-md
-                      border ${errors.email ? 'border-red-500/50' : 'border-white/10'}
-                      text-white placeholder-white/40
-                      focus:outline-none focus:border-neon-purple/50
-                      focus:bg-white/10 transition-all duration-300
+                      bg-gray-50 dark:bg-white/5 backdrop-blur-md
+                      border ${errors.email ? 'border-red-500/50' : 'border-gray-300 dark:border-white/10'}
+                      text-gray-900 dark:text-white 
+                      placeholder-gray-400 dark:placeholder-white/40
+                      focus:outline-none focus:border-purple-500 dark:focus:border-neon-purple/50
+                      focus:bg-white dark:focus:bg-white/10 
+                      transition-all duration-300
                     `}
                     placeholder="Seu email"
                   />
@@ -145,7 +149,7 @@ export function ContactSection() {
                     <motion.p
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="text-red-400 text-xs mt-1"
+                      className="text-red-500 dark:text-red-400 text-xs mt-1"
                     >
                       {errors.email.message}
                     </motion.p>
@@ -155,7 +159,7 @@ export function ContactSection() {
 
               {/* Campo Assunto */}
               <div>
-                <label className="block text-sm font-medium text-white/80 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-white/80 mb-2">
                   Assunto
                 </label>
                 <input
@@ -168,11 +172,13 @@ export function ContactSection() {
                   })}
                   className={`
                     w-full px-4 py-3 rounded-lg
-                    bg-white/5 backdrop-blur-md
-                    border ${errors.subject ? 'border-red-500/50' : 'border-white/10'}
-                    text-white placeholder-white/40
-                    focus:outline-none focus:border-neon-purple/50
-                    focus:bg-white/10 transition-all duration-300
+                    bg-gray-50 dark:bg-white/5 backdrop-blur-md
+                    border ${errors.subject ? 'border-red-500/50' : 'border-gray-300 dark:border-white/10'}
+                    text-gray-900 dark:text-white 
+                    placeholder-gray-400 dark:placeholder-white/40
+                    focus:outline-none focus:border-purple-500 dark:focus:border-neon-purple/50
+                    focus:bg-white dark:focus:bg-white/10 
+                    transition-all duration-300
                   `}
                   placeholder="Consulta de Projeto"
                 />
@@ -180,7 +186,7 @@ export function ContactSection() {
                   <motion.p
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-red-400 text-xs mt-1"
+                    className="text-red-500 dark:text-red-400 text-xs mt-1"
                   >
                     {errors.subject.message}
                   </motion.p>
@@ -189,7 +195,7 @@ export function ContactSection() {
 
               {/* Campo Mensagem */}
               <div>
-                <label className="block text-sm font-medium text-white/80 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-white/80 mb-2">
                   <MessageSquare className="inline w-4 h-4 mr-1" />
                   Mensagem
                 </label>
@@ -204,11 +210,13 @@ export function ContactSection() {
                   rows={5}
                   className={`
                     w-full px-4 py-3 rounded-lg resize-none
-                    bg-white/5 backdrop-blur-md
-                    border ${errors.message ? 'border-red-500/50' : 'border-white/10'}
-                    text-white placeholder-white/40
-                    focus:outline-none focus:border-neon-purple/50
-                    focus:bg-white/10 transition-all duration-300
+                    bg-gray-50 dark:bg-white/5 backdrop-blur-md
+                    border ${errors.message ? 'border-red-500/50' : 'border-gray-300 dark:border-white/10'}
+                    text-gray-900 dark:text-white 
+                    placeholder-gray-400 dark:placeholder-white/40
+                    focus:outline-none focus:border-purple-500 dark:focus:border-neon-purple/50
+                    focus:bg-white dark:focus:bg-white/10 
+                    transition-all duration-300
                   `}
                   placeholder="Conte-me sobre seu projeto..."
                 />
@@ -216,7 +224,7 @@ export function ContactSection() {
                   <motion.p
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-red-400 text-xs mt-1"
+                    className="text-red-500 dark:text-red-400 text-xs mt-1"
                   >
                     {errors.message.message}
                   </motion.p>
@@ -230,11 +238,15 @@ export function ContactSection() {
                   variant="glass"
                   size="lg"
                   disabled={isSubmitting}
-                  className="w-full md:w-auto px-8 py-3 group"
+                  className="w-full md:w-auto px-8 py-3 group 
+                    dark:text-white light:text-gray-900 
+                    dark:border-white/20 light:border-gray-300"
                 >
                   {isSubmitting ? (
                     <span className="flex items-center">
-                      <div className="animate-spin rounded-full h-4 w-4 border-2 border-white/20 border-t-white mr-2" />
+                      <div className="animate-spin rounded-full h-4 w-4 border-2 
+                        border-gray-400 dark:border-white/20 
+                        border-t-gray-700 dark:border-t-white mr-2" />
                       Enviando...
                     </span>
                   ) : (
@@ -250,7 +262,7 @@ export function ContactSection() {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mt-4 flex items-center text-green-400"
+                    className="mt-4 flex items-center text-green-600 dark:text-green-400"
                   >
                     <CheckCircle className="w-5 h-5 mr-2" />
                     Mensagem enviada com sucesso!
@@ -261,7 +273,7 @@ export function ContactSection() {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mt-4 flex items-center text-red-400"
+                    className="mt-4 flex items-center text-red-600 dark:text-red-400"
                   >
                     <AlertCircle className="w-5 h-5 mr-2" />
                     Algo deu errado. Tente novamente.
@@ -280,7 +292,9 @@ export function ContactSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-12 text-center"
         >
-          <p className="text-white/60 mb-4">ou entre em contato comigo pelas redes</p>
+          <p className="text-gray-600 dark:text-white/60 mb-4">
+            ou entre em contato comigo pelas redes
+          </p>
           <div className="flex justify-center gap-4">
             {socialLinks.map((social, index) => (
               <motion.a
@@ -290,14 +304,17 @@ export function ContactSection() {
                 whileTap={{ scale: 0.95 }}
                 className="
                   w-12 h-12 rounded-lg
-                  bg-white/5 backdrop-blur-md border border-white/10
+                  bg-gray-100 dark:bg-white/5 
+                  backdrop-blur-md 
+                  border border-gray-300 dark:border-white/10
                   flex items-center justify-center
-                  hover:bg-white/10 hover:border-white/20
+                  hover:bg-gray-200 dark:hover:bg-white/10 
+                  hover:border-gray-400 dark:hover:border-white/20
                   transition-all duration-300
                 "
                 aria-label={social.label}
               >
-                <social.icon className="w-5 h-5 text-white/80" />
+                <social.icon className="w-5 h-5 text-gray-700 dark:text-white/80" />
               </motion.a>
             ))}
           </div>

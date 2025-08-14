@@ -49,7 +49,6 @@ export function ServicesSection() {
     },
   ]
 
-  // Variantes de animação
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -83,10 +82,12 @@ export function ServicesSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          {/* ALTERAÇÃO: Cores do título para tema claro/escuro */}
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             SERVIÇOS
           </h2>
-          <p className="text-lg text-white/60 max-w-4xl mx-auto">
+          {/* ALTERAÇÃO: Cores do parágrafo para tema claro/escuro */}
+          <p className="text-lg text-gray-600 dark:text-white/60 max-w-4xl mx-auto">
             Um site vai além de uma simples página na internet. Ele é a porta de entrada para o seu negócio, 
             a vitrine que apresenta seus produtos ou serviços e a ferramenta poderosa para alcançar seus objetivos.
           </p>
@@ -116,19 +117,23 @@ export function ServicesSection() {
                     group-hover:scale-110 transition-transform duration-300
                     flex-shrink-0
                   `}>
-                    <div className="w-full h-full bg-black/60 backdrop-blur rounded-xl flex items-center justify-center">
-                      <service.icon className="w-7 h-7 text-white" />
+                    {/* ALTERAÇÃO: Fundo do ícone para tema claro/escuro */}
+                    <div className="w-full h-full bg-white/50 dark:bg-black/60 backdrop-blur rounded-xl flex items-center justify-center">
+                      {/* ALTERAÇÃO: Cor do ícone para tema claro/escuro */}
+                      <service.icon className="w-7 h-7 text-gray-800 dark:text-white" />
                     </div>
                   </div>
                   
                   {/* Título do serviço */}
-                  <h3 className="ml-4 text-xl font-semibold text-white pt-3">
+                  {/* ALTERAÇÃO: Cor do título do card para tema claro/escuro */}
+                  <h3 className="ml-4 text-xl font-semibold text-gray-900 dark:text-white pt-3">
                     {service.title}
                   </h3>
                 </div>
 
                 {/* Descrição do serviço */}
-                <p className="text-sm text-justify text-white/70 leading-relaxed mb-4">
+                {/* ALTERAÇÃO: Cor da descrição do card para tema claro/escuro */}
+                <p className="text-sm text-justify text-gray-600 dark:text-white/70 leading-relaxed mb-4">
                   {service.description}
                 </p>
 
@@ -141,8 +146,8 @@ export function ServicesSection() {
                     group-hover:opacity-100 transition-opacity duration-500
                   `} />
                   
-                  {/* Texto "Saiba mais" com seta */}
-                  <div className="flex items-center text-white/40 group-hover:text-white/80 transition-colors">
+                  {/* ALTERAÇÃO: Cor do texto "Saiba mais" para tema claro/escuro e hover */}
+                  <div className="flex items-center text-gray-500 dark:text-white/40 group-hover:text-gray-700 dark:group-hover:text-white/80 transition-colors">
                     <span className="text-xs font-medium">Saiba mais</span>
                     <svg 
                       className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" 
@@ -172,7 +177,8 @@ export function ServicesSection() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-center mt-16"
         >
-          <p className="text-white/60 mb-6">
+          {/* ALTERAÇÃO: Cor do texto para tema claro/escuro */}
+          <p className="text-gray-600 dark:text-white/60 mb-6">
             Pronto para transformar sua presença digital?
           </p>
           <button 

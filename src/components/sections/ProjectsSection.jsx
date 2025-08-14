@@ -126,10 +126,10 @@ export function ProjectsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-4"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             PORTFÓLIO
           </h2>
-          <p className="text-lg text-white/60 max-w-3xl mx-auto mb-12">
+          <p className="text-lg text-gray-600 dark:text-white/60 max-w-3xl mx-auto mb-12">
             Conheça alguns dos projetos desenvolvidos por mim.
           </p>
         </motion.div>
@@ -154,13 +154,17 @@ export function ProjectsSection() {
                 ease: "easeOut"
               }}
             >
-              <div className="group relative h-64 rounded-xl overflow-hidden cursor-pointer">
+              <div className="group relative h-64 rounded-xl overflow-hidden cursor-pointer 
+                shadow-lg dark:shadow-none 
+                hover:shadow-xl dark:hover:shadow-lg dark:hover:shadow-purple-500/20
+                transition-all duration-300">
                 {/* Fundo com gradiente */}
                 <div className={`
                   absolute inset-0 
                   bg-gradient-to-br ${project.gradient}
                   transition-transform duration-500
                   group-hover:scale-110
+                  dark:opacity-100 opacity-90
                 `} />
 
                 {/* Overlay com glassmorfismo no hover */}
@@ -177,9 +181,10 @@ export function ProjectsSection() {
                   <div>
                     <span className="
                       inline-block px-3 py-1 
-                      bg-white/10 backdrop-blur-md 
-                      rounded-full text-xs text-white/80
-                      border border-white/20
+                      bg-white/20 dark:bg-white/10 backdrop-blur-md 
+                      rounded-full text-xs text-white
+                      border border-white/30 dark:border-white/20
+                      font-medium
                     ">
                       {project.category}
                     </span>
@@ -187,7 +192,7 @@ export function ProjectsSection() {
 
                   {/* Título e ações */}
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-3">
+                    <h3 className="text-xl font-semibold text-white mb-3 drop-shadow-md">
                       {project.title}
                     </h3>
 
@@ -203,10 +208,11 @@ export function ProjectsSection() {
                         className="
                           flex items-center gap-1
                           px-3 py-1.5 rounded-lg
-                          bg-white/10 backdrop-blur-md
-                          text-white text-sm
-                          hover:bg-white/20
+                          bg-white/20 dark:bg-white/10 backdrop-blur-md
+                          text-white text-sm font-medium
+                          hover:bg-white/30 dark:hover:bg-white/20
                           transition-colors
+                          border border-white/30 dark:border-white/20
                         "
                       >
                         <ExternalLink className="w-4 h-4" />
@@ -217,10 +223,11 @@ export function ProjectsSection() {
                         className="
                           flex items-center gap-1
                           px-3 py-1.5 rounded-lg
-                          bg-white/10 backdrop-blur-md
-                          text-white text-sm
-                          hover:bg-white/20
+                          bg-white/20 dark:bg-white/10 backdrop-blur-md
+                          text-white text-sm font-medium
+                          hover:bg-white/30 dark:hover:bg-white/20
                           transition-colors
+                          border border-white/30 dark:border-white/20
                         "
                       >
                         <Github className="w-4 h-4" />
@@ -232,10 +239,11 @@ export function ProjectsSection() {
 
                 {/* Ícone decorativo no canto */}
                 <ArrowUpRight className="
-                  absolute top-4 right-4 w-5 h-5 text-white/40
+                  absolute top-4 right-4 w-5 h-5 text-white/50
                   transform translate-x-10 -translate-y-10
                   group-hover:translate-x-0 group-hover:translate-y-0
                   transition-transform duration-300
+                  drop-shadow-md
                 " />
               </div>
             </motion.div>

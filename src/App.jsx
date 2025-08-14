@@ -1,3 +1,4 @@
+import { ThemeProvider } from "./contexts/ThemeContext"
 import { AnimatedBackground } from "./components/AnimatedBackground"
 import { Navigation } from "./components/Navigation"
 import { HeroSection } from "./components/sections/HeroSection"
@@ -10,39 +11,31 @@ import { Footer } from "./components/Footer"
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white relative">
-      {/* Background animado - fica atrás de tudo */}
-      <AnimatedBackground />
+    <ThemeProvider>
+      <div className="min-h-screen bg-white dark:bg-[#0a0a0a] text-gray-900 dark:text-white relative transition-colors duration-300">
+        <AnimatedBackground />
 
-      {/* Navegação fixa */}
-      <Navigation />
+        <Navigation />
 
-      {/* Conteúdo principal */}
-      <main className="relative z-10">
-        {/* Seção Hero com ID para navegação */}
-        <div id="home">
-          <HeroSection />
-        </div>
+        <main className="relative z-10">
+          <div id="home">
+            <HeroSection />
+          </div>
 
-        {/* Seção de Serviços */}
-        <ServicesSection />
+          <ServicesSection />
 
-        {/* Seção de Projetos */}
-        <ProjectsSection />
+          <ProjectsSection />
 
-        {/* Seção de Habilidades */}
-        <SkillsSection />
+          <SkillsSection />
 
-        {/* Seção Sobre Mim */}
-        <AboutSection />
+          <AboutSection />
 
-        {/* Seção de Contato */}
-        <ContactSection />
-      </main>
+          <ContactSection />
+        </main>
 
-      {/* Footer */}
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </ThemeProvider>
   )
 }
 

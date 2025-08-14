@@ -41,11 +41,11 @@ export function AboutSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Sobre Mim
           </h2>
-          <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            Turning ideas into reality through code and creativity
+          <p className="text-lg text-gray-600 dark:text-white/60 max-w-2xl mx-auto">
+            Transformando ideias em realidade através de código e criatividade
           </p>
         </motion.div>
 
@@ -58,21 +58,21 @@ export function AboutSection() {
           className="mb-12"
         >
           <GlassCard className="p-8 md:p-12">
-            <div className="prose prose-lg prose-invert max-w-none">
-              <p className="text-white/80 text-justify leading-relaxed text-lg mb-6">
-                Olá! Meu nome é Raniery Fialho e atuo há mais de uma década como educador, com formação em Ciência de Dados, pós gradução em Análise e Desenvolvimento de Sistemas e experiência prática como desenvolvedor de sites. Com um histórico consolidado em educação e tecnologia e focado em desenvolvimento de web apps, sites institucionais, landing pages e e-commerces.
+            <div className="prose prose-lg max-w-none">
+              <p className="text-gray-700 dark:text-white/80 text-justify leading-relaxed text-lg mb-6">
+                Olá! Meu nome é Raniery Fialho e atuo há mais de uma década como educador, com formação em Ciência de Dados, pós graduação em Análise e Desenvolvimento de Sistemas e experiência prática como desenvolvedor de sites. Com um histórico consolidado em educação e tecnologia e focado em desenvolvimento de web apps, sites institucionais, landing pages e e-commerces.
               </p>
-              <p className="text-white/80 text-justify leading-relaxed text-lg mb-6">
+              <p className="text-gray-700 dark:text-white/80 text-justify leading-relaxed text-lg mb-6">
                 Sou apaixonado por transmitir conhecimento e habilidades, apoiando pequenas e grandes empresas no desenvolvimento da sua identidade visual, consolidação de marca e posicionamento no mercado digital. 
               </p>
-              <p className="text-white/80 text-justify leading-relaxed text-lg">
+              <p className="text-gray-700 dark:text-white/80 text-justify leading-relaxed text-lg">
                 Meu objetivo é ajudar empresas a estabelecerem uma presença online marcante através do desenvolvimento de sites eficazes, reforçando o posicionamento de marca no universo digital. Ao fortalecer minha posição no setor, contribuo ativamente para a evolução contínua de profissionais e entusiastas, mostrando como uma presença online estratégica pode transformar negócios e carreiras.
               </p>
             </div>
           </GlassCard>
         </motion.div>
 
-        {/* Cards de informações */}
+        {/* Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {aboutCards.map((card, index) => (
             <motion.div
@@ -92,18 +92,18 @@ export function AboutSection() {
                   bg-gradient-to-br ${card.gradient} p-0.5
                   group-hover:scale-110 transition-transform duration-300
                 `}>
-                  <div className="w-full h-full bg-black/50 backdrop-blur rounded-lg flex items-center justify-center">
-                    <card.icon className="w-6 h-6 text-white" />
+                  <div className="w-full h-full bg-gray-100 dark:bg-black/50 backdrop-blur rounded-lg flex items-center justify-center">
+                    <card.icon className="w-6 h-6 text-gray-900 dark:text-white" />
                   </div>
                 </div>
 
                 {/* Título */}
-                <h3 className="text-lg font-semibold text-white mb-3">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
                   {card.title}
                 </h3>
 
                 {/* Conteúdo */}
-                <p className="text-sm text-white/60 leading-relaxed">
+                <p className="text-sm text-gray-600 dark:text-white/60 leading-relaxed">
                   {card.content}
                 </p>
               </GlassCard>
