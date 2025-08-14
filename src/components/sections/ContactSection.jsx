@@ -280,7 +280,7 @@ export function ContactSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-12 text-center"
         >
-          <p className="text-white/60 mb-4">Ou entre em contato comigo em</p>
+          <p className="text-white/60 mb-4">ou entre em contato comigo pelas redes</p>
           <div className="flex justify-center gap-4">
             {socialLinks.map((social, index) => (
               <motion.a
