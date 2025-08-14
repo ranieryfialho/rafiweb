@@ -1,5 +1,5 @@
-import { motion } from "framer-motion"
-import { GlassCard } from "@/components/GlassCard"
+import { motion } from "framer-motion";
+import { GlassCard } from "@/components/GlassCard";
 import { 
   FileText,
   Globe,
@@ -7,7 +7,7 @@ import {
   Server,
   Smartphone,
   Shield
-} from "lucide-react"
+} from "lucide-react";
 
 export function ServicesSection() {
   const services = [
@@ -47,7 +47,7 @@ export function ServicesSection() {
       description: "Mantenha seu site sempre atualizado e seguro com nossos serviços de manutenção completa e backup automatizado. Garantimos a segurança dos seus dados e a performance contínua do seu site.",
       color: "from-teal-500 to-cyan-500",
     },
-  ]
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -57,7 +57,7 @@ export function ServicesSection() {
         staggerChildren: 0.1,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -69,7 +69,13 @@ export function ServicesSection() {
         ease: "easeOut",
       },
     },
-  }
+  };
+
+  // --- FUNÇÃO ADICIONADA ---
+  // Esta função encontra o elemento com id="contact" e rola a página suavemente até ele
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <section id="services" className="py-20 px-4">
@@ -103,6 +109,7 @@ export function ServicesSection() {
                 className="p-6 h-full group cursor-pointer hover:scale-[1.02] transition-all duration-300"
                 hover={true}
                 gradient={true}
+                onClick={scrollToContact} // --- onClick ADICIONADO AQUI ---
               >
                 <div className="flex items-start mb-4">
 
@@ -167,7 +174,7 @@ export function ServicesSection() {
             Pronto para transformar sua presença digital?
           </p>
           <button 
-            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={scrollToContact}
             className="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg hover:from-purple-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105"
           >
             Solicitar Orçamento

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion"; // AnimatePresence importado
 import { useForm } from "react-hook-form";
 import { GlassCard } from "@/components/GlassCard";
 import { Button } from "@/components/ui/button";
@@ -13,11 +13,14 @@ import {
   Github,
   Linkedin,
   Instagram,
+  X, // Ícone X para o botão de fechar
 } from "lucide-react";
 
 export function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  // Novo estado para controlar a visibilidade do card do LinkedIn
+  const [showLinkedinCard, setShowLinkedinCard] = useState(false);
 
   const {
     register,
@@ -45,7 +48,6 @@ export function ContactSection() {
         setSubmitStatus("success");
         reset();
       } else {
-        // Mostra a mensagem de erro vinda do WordPress, se houver
         throw new Error(responseData.message || "Falha ao enviar o formulário");
       }
     } catch (error) {
@@ -56,15 +58,54 @@ export function ContactSection() {
     }
   };
 
-  // Links sociais
+  // Links sociais atualizados
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Github, href: "https://github.com/ranieryfialho", label: "GitHub" },
+    // O LinkedIn agora tem uma "action" em vez de um "href"
+    { icon: Linkedin, action: () => setShowLinkedinCard(true), label: "LinkedIn" },
+    { icon: Instagram, href: "https://www.instagram.com/rafi.web/", label: "Instagram" },
   ];
 
   return (
     <section id="contact" className="py-20 px-4 relative">
+      {/* Card de aviso para o LinkedIn */}
+      <AnimatePresence>
+        {showLinkedinCard && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+            onClick={() => setShowLinkedinCard(false)} // Fecha ao clicar fora
+          >
+            <motion.div
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              onClick={(e) => e.stopPropagation()} // Impede que o clique no card o feche
+            >
+              <GlassCard className="relative w-[90vw] max-w-md p-8 text-center">
+                <button
+                  onClick={() => setShowLinkedinCard(false)}
+                  className="absolute top-3 right-3 text-white/50 hover:text-white transition-colors"
+                  aria-label="Fechar"
+                >
+                  <X size={20} />
+                </button>
+                <Linkedin className="mx-auto mb-4 text-white" size={40} />
+                <h3 className="text-xl font-bold text-white mb-2">
+                  Perfil em Construção
+                </h3>
+                <p className="text-white/70">
+                  Estou preparando um perfil incrível no LinkedIn! Fique de olho, em breve ele estará no ar.
+                </p>
+              </GlassCard>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <div className="container mx-auto max-w-4xl">
         {/* Header da seção */}
         <motion.div
@@ -267,7 +308,7 @@ export function ContactSection() {
                   size="lg"
                   disabled={isSubmitting}
                   className="w-full md:w-auto px-8 py-3 group 
-                    dark:text-white light:text-gray-900 
+                    dark:text-white text-gray-900 
                     dark:border-white/20 light:border-gray-300"
                 >
                   {isSubmitting ? (
@@ -326,27 +367,30 @@ export function ContactSection() {
             ou entre em contato comigo pelas redes
           </p>
           <div className="flex justify-center gap-4">
-            {socialLinks.map((social, index) => (
-              <motion.a
-                key={index}
-                href={social.href}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className="
-                  w-12 h-12 rounded-lg
-                  bg-gray-100 dark:bg-white/5 
-                  backdrop-blur-md 
-                  border border-gray-300 dark:border-white/10
-                  flex items-center justify-center
-                  hover:bg-gray-200 dark:hover:bg-white/10 
-                  hover:border-gray-400 dark:hover:border-white/20
-                  transition-all duration-300
-                "
-                aria-label={social.label}
-              >
-                <social.icon className="w-5 h-5 text-gray-700 dark:text-white/80" />
-              </motion.a>
-            ))}
+            {socialLinks.map((social, index) => {
+              // Lógica para renderizar link ou botão
+              const commonProps = {
+                key: index,
+                whileHover: { scale: 1.1 },
+                whileTap: { scale: 0.95 },
+                className: "w-12 h-12 rounded-lg bg-gray-100 dark:bg-white/5 backdrop-blur-md border border-gray-300 dark:border-white/10 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-white/10 hover:border-gray-400 dark:hover:border-white/20 transition-all duration-300",
+                "aria-label": social.label,
+              };
+
+              if (social.href) {
+                return (
+                  <motion.a href={social.href} target="_blank" rel="noopener noreferrer" {...commonProps}>
+                    <social.icon className="w-5 h-5 text-gray-700 dark:text-white/80" />
+                  </motion.a>
+                );
+              } else {
+                return (
+                  <motion.button onClick={social.action} {...commonProps}>
+                    <social.icon className="w-5 h-5 text-gray-700 dark:text-white/80" />
+                  </motion.button>
+                );
+              }
+            })}
           </div>
         </motion.div>
       </div>

@@ -1,118 +1,83 @@
-import { motion } from "framer-motion"
-import { GlassCard, GlassBadge } from "@/components/GlassCard"
-import { ExternalLink, Github, ArrowUpRight } from "lucide-react"
+import { motion } from "framer-motion";
+import { GlassCard, GlassBadge } from "@/components/GlassCard";
+import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
+import { asset } from "@/lib/utils.js";
 
 export function ProjectsSection() {
   const projects = [
     {
       id: 1,
-      title: "Fritz Security Systems",
-      category: "CYBER CAMERA RESELLER",
-      gradient: "from-blue-600 to-purple-600",
-      image: "/api/placeholder/400/300",
-      liveUrl: "#",
-      githubUrl: "#",
+      title: "Gráfica Eleal",
+      category: "WEBSITE INSTITUCIONAL",
+      gradient: "from-gray-600 to-gray-900",
+      image: "/projects/grafica-eleal.png",
+      liveUrl: "https://graficaeleal.com.br/",
+      githubUrl: "https://github.com/ranieryfialho/grafica-eleal",
     },
     {
       id: 2,
-      title: "Open Digital Gallery",
-      category: "COURSE PORTFOLIO",
-      gradient: "from-yellow-500 to-orange-500",
-      image: "/api/placeholder/400/300",
-      liveUrl: "#",
-      githubUrl: "#",
+      title: "FinTrack",
+      category: "ASSISTENTE PESSOAL DE FINANÇAS",
+      gradient: "from-gray-600 to-gray-900",
+      image: "/projects/fintrack.png",
+      liveUrl: "https://financial-dashboard-cfa8e.web.app/",
+      githubUrl: "https://github.com/ranieryfialho/FinTrack",
     },
     {
       id: 3,
-      title: "Livcom",
-      category: "MASTER COURSES WEBSITE",
-      gradient: "from-gray-600 to-gray-800",
-      image: "/api/placeholder/400/300",
-      liveUrl: "#",
-      githubUrl: "#",
+      title: "App Gestão Escolar",
+      category: "GESTÃO ACADÊMICA",
+      gradient: "from-gray-600 to-gray-900",
+      image: "/projects/gestao-escolar.png",
+      liveUrl: "https://portal-aluno-senior.web.app/",
+      githubUrl: "https://github.com/ranieryfialho/portal-aluno",
     },
     {
       id: 4,
-      title: "Istanbul Cruise Transfer",
-      category: "ISTANBUL CRUISE ACTIVITIES",
-      gradient: "from-blue-800 to-indigo-900",
-      image: "/api/placeholder/400/300",
-      liveUrl: "#",
-      githubUrl: "#",
+      title: "Portal do Aluno",
+      category: "GESTÃO ACADÊMICA",
+      gradient: "from-gray-600 to-gray-900",
+      image: "/projects/portal-aluno.png",
+      liveUrl: "https://boletim-escolar-app.web.app/",
+      githubUrl: "https://github.com/ranieryfialho/boletim-escolar",
     },
     {
       id: 5,
-      title: "Tour Control Dashboard",
-      category: "DASHBOARD",
-      gradient: "from-teal-500 to-cyan-600",
-      image: "/api/placeholder/400/300",
-      liveUrl: "#",
-      githubUrl: "#",
+      title: "Ponto Eletrônico",
+      category: "GESTÃO DE JORNADA DE TRABALHO",
+      gradient: "from-gray-600 to-gray-900",
+      image: "/projects/ponto-eletronico.png",
+      liveUrl: "https://ponto-eletronico-senior-81a53.web.app/",
+      githubUrl: "https://github.com/ranieryfialho/ponto-eletronico",
     },
     {
       id: 6,
-      title: "La-Cuisinette",
-      category: "RESTAURANT",
-      gradient: "from-green-700 to-emerald-800",
-      image: "/api/placeholder/400/300",
-      liveUrl: "#",
-      githubUrl: "#",
+      title: "Backup Firebase",
+      category: "GESTÃO DE BANCO DE DADOS FIREBASE",
+      gradient: "from-gray-600 to-gray-900",
+      image: "/projects/backup-firebase.png",
+      liveUrl: "https://backup-db-firebase.vercel.app/",
+      githubUrl: "https://github.com/ranieryfialho/backup-db-firebase",
     },
     {
       id: 7,
-      title: "Gold Grain Organics",
-      category: "ORGANIC FOOD",
-      gradient: "from-amber-600 to-yellow-700",
-      image: "/api/placeholder/400/300",
-      liveUrl: "#",
-      githubUrl: "#",
+      title: "Flappy Mario",
+      category: "GAME",
+      gradient: "from-gray-600 to-gray-900",
+      image: "/projects/flappy-mario.png",
+      liveUrl: "https://ranieryfialho.github.io/flappy-mario/",
+      githubUrl: "https://github.com/ranieryfialho/flappy-mario",
     },
     {
       id: 8,
-      title: "MCE Global",
-      category: "ADVERTECTURE",
-      gradient: "from-orange-500 to-red-600",
-      image: "/api/placeholder/400/300",
-      liveUrl: "#",
-      githubUrl: "#",
+      title: "Porfolio",
+      category: "PORTFOLIO SPA",
+      gradient: "from-gray-600 to-gray-900",
+      image: "/projects/portfolio.png",
+      liveUrl: "https://rafiweb.com.br",
+      githubUrl: "https://github.com/ranieryfialho/rafiweb",
     },
-    {
-      id: 9,
-      title: "Lovedb4",
-      category: "FASHION",
-      gradient: "from-pink-500 to-rose-600",
-      image: "/api/placeholder/400/300",
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 10,
-      title: "ipekbeby",
-      category: "BABY FASHION",
-      gradient: "from-purple-500 to-pink-600",
-      image: "/api/placeholder/400/300",
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 11,
-      title: "Private Transfer Istanbul",
-      category: "ISTANBUL PRIVATE TRANSFER",
-      gradient: "from-slate-600 to-gray-800",
-      image: "/api/placeholder/400/300",
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 12,
-      title: "Istanbul E-pass",
-      category: "DIGITAL MUSEUM PASS",
-      gradient: "from-indigo-600 to-blue-700",
-      image: "/api/placeholder/400/300",
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-  ]
+  ];
 
   return (
     <section id="projects" className="py-20 px-4">
@@ -145,40 +110,52 @@ export function ProjectsSection() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ 
+              transition={{
                 duration: 0.5,
                 delay: index * 0.05,
-                ease: "easeOut"
+                ease: "easeOut",
               }}
             >
-              <div className="group relative h-64 rounded-xl overflow-hidden cursor-pointer 
+              <div
+                className="group relative h-64 rounded-xl overflow-hidden cursor-pointer 
                 shadow-lg dark:shadow-none 
                 hover:shadow-xl dark:hover:shadow-lg dark:hover:shadow-purple-500/20
-                transition-all duration-300">
-                <div className={`
+                transition-all duration-300"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-top transition-all duration-1000 ease-in-out group-hover:bg-bottom"
+                  style={{ backgroundImage: `url(${asset(project.image)})` }}
+                />
+
+                <div
+                  className={`
                   absolute inset-0 
                   bg-gradient-to-br ${project.gradient}
-                  transition-transform duration-500
-                  group-hover:scale-110
-                  dark:opacity-100 opacity-90
-                `} />
+                  transition-all duration-500
+                  opacity-80 dark:opacity-90 group-hover:opacity-60
+                `}
+                />
 
-                <div className="
+                <div
+                  className="
                   absolute inset-0 
                   bg-black/20 backdrop-blur-[2px]
                   opacity-0 group-hover:opacity-100
                   transition-all duration-300
-                " />
+                "
+                />
 
                 <div className="relative h-full p-6 flex flex-col justify-between">
                   <div>
-                    <span className="
+                    <span
+                      className="
                       inline-block px-3 py-1 
                       bg-white/20 dark:bg-white/10 backdrop-blur-md 
                       rounded-full text-xs text-white
                       border border-white/30 dark:border-white/20
                       font-medium
-                    ">
+                    "
+                    >
                       {project.category}
                     </span>
                   </div>
@@ -188,14 +165,17 @@ export function ProjectsSection() {
                       {project.title}
                     </h3>
 
-                    <div className="
+                    <div
+                      className="
                       flex gap-3 
                       opacity-0 group-hover:opacity-100
                       transform translate-y-4 group-hover:translate-y-0
                       transition-all duration-300
-                    ">
+                    "
+                    >
                       <a
                         href={project.liveUrl}
+                        target="_blank" rel="noopener noreferrer"
                         className="
                           flex items-center gap-1
                           px-3 py-1.5 rounded-lg
@@ -211,6 +191,7 @@ export function ProjectsSection() {
                       </a>
                       <a
                         href={project.githubUrl}
+                        target="_blank" rel="noopener noreferrer"
                         className="
                           flex items-center gap-1
                           px-3 py-1.5 rounded-lg
@@ -228,18 +209,20 @@ export function ProjectsSection() {
                   </div>
                 </div>
 
-                <ArrowUpRight className="
+                <ArrowUpRight
+                  className="
                   absolute top-4 right-4 w-5 h-5 text-white/50
                   transform translate-x-10 -translate-y-10
                   group-hover:translate-x-0 group-hover:translate-y-0
                   transition-transform duration-300
                   drop-shadow-md
-                " />
+                "
+                />
               </div>
             </motion.div>
           ))}
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
