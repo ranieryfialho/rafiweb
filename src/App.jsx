@@ -8,12 +8,16 @@ import { SkillsSection } from "./components/sections/SkillsSection"
 import { AboutSection } from "./components/sections/AboutSection"
 import { ContactSection } from "./components/sections/ContactSection"
 import { Footer } from "./components/Footer"
+import { useMediaQuery } from "./lib/hooks/useMediaQuery";
 
 function App() {
+  const isDesktop = useMediaQuery('(min-width: 768px)');
+
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-white dark:bg-[#0a0a0a] text-gray-900 dark:text-white relative transition-colors duration-300">
-        <AnimatedBackground />
+
+        {isDesktop && <AnimatedBackground />}
 
         <Navigation />
 
@@ -21,15 +25,10 @@ function App() {
           <div id="home">
             <HeroSection />
           </div>
-
           <ServicesSection />
-
           <ProjectsSection />
-
           <SkillsSection />
-
           <AboutSection />
-
           <ContactSection />
         </main>
 

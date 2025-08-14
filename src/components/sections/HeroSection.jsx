@@ -2,16 +2,19 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles } from "lucide-react"
 import { GlassBadge } from "@/components/GlassCard"
+import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
 
 export function HeroSection() {
-  // Animações de entrada
+  const isDesktop = useMediaQuery('(min-width: 768px)');
+
+  // Animações de entrada otimizadas
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
+        staggerChildren: isDesktop ? 0.2 : 0,
+        delayChildren: isDesktop ? 0.3 : 0,
       },
     },
   }
@@ -117,9 +120,12 @@ export function HeroSection() {
         
       </motion.div>
 
-      {/* Elementos decorativos animados */}
-      <div className="absolute top-1/4 -left-20 w-40 h-40 bg-neon-purple/20 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-1/4 -right-20 w-60 h-60 bg-neon-blue/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+      {isDesktop && (
+        <>
+          <div className="absolute top-1/4 -left-20 w-40 h-40 bg-neon-purple/20 rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-1/4 -right-20 w-60 h-60 bg-neon-blue/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+        </>
+      )}
     </section>
   )
 }
