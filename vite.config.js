@@ -12,14 +12,12 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  
-  // A base continua a mesma para que os caminhos funcionem dentro do WordPress
+
   base: process.env.NODE_ENV === 'development'
     ? '/'
     : `/wp-content/plugins/${pluginName}/dist/`,
 
   build: {
-    // AQUI ESTÁ A ALTERAÇÃO: Gera a 'dist' na raiz do projeto
     outDir: 'dist', 
     emptyOutDir: true,
     manifest: true,
