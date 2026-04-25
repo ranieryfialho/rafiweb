@@ -2,9 +2,6 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 
-// Nome da pasta do seu plugin
-const pluginName = 'rafiweb-plugin';
-
 export default defineConfig({
   plugins: [react()],
   resolve: {
@@ -13,9 +10,7 @@ export default defineConfig({
     },
   },
 
-  base: process.env.NODE_ENV === 'development'
-    ? '/'
-    : `/wp-content/plugins/${pluginName}/dist/`,
+  base: '/',
 
   build: {
     outDir: 'dist', 
