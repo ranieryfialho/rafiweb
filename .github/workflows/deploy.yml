@@ -1,0 +1,33 @@
+name: Deploy Portfolio React
+
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. Puxando o código
+        uses: actions/checkout@v4
+
+      - name: 2. Preparando o Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: 3. Instalando dependências e Gerando o Build
+        run: |
+          npm install
+          npm run build
+
+      - name: 4. Enviando arquivos para a VPS Hostinger
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          source: "dist/*"
+          target: "/root/portfolio/html"
+          strip_components: 1
