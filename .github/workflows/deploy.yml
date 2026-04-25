@@ -29,5 +29,5 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           source: "dist/*"
-          target: "/root/portfolio/html"
+          target: "/root/rafiweb/html"
           strip_components: 1
